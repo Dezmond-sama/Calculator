@@ -14,22 +14,22 @@ interface Props {
 }
 
 const GridButton = ({ title, size, onPress }: Props) => {
+    const pressed = ({ pressed }: { pressed: boolean }) => {
+        return [styles.button, pressed ? styles.pressed : styles.released];
+    };
     return (
-        <Pressable
-            style={[styles.container, { flex: size || 1 }]}
-            onPress={onPress}
-        >
-            <View style={styles.button}>
+        <View style={{ flex: size || 1 }}>
+            <Pressable style={pressed} onPress={onPress}>
                 <Text>{title}</Text>
-            </View>
-        </Pressable>
+            </Pressable>
+        </View>
     );
 };
 
 export default GridButton;
 
 const styles = StyleSheet.create({
-    container: {},
+    container: { flex: 1 },
     button: {
         flex: 1,
         alignItems: "center",
@@ -39,4 +39,10 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: "#ddb532",
     },
+    pressed: {
+        backgroundColor: "#9b8027",
+        borderColor: "#6e5c1e",
+        borderWidth: 3,
+    },
+    released: {},
 });

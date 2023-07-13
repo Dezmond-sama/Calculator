@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Row from "./components/Row";
 import GridButton from "./components/GridButton";
+import ValueBoard from "./components/ValueBoard";
 
 export default function App() {
     const [currentNumber, setCurrentNumber] = useState(0);
@@ -14,7 +15,7 @@ export default function App() {
     return (
         <SafeAreaView style={styles.container}>
             <View style={{ flex: 1 }}>
-                <Text>Screen</Text>
+                <ValueBoard value={"" + currentNumber} />
             </View>
             <View style={styles.buttons}>
                 <Row height={"20%"}>
