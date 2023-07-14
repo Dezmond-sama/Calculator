@@ -5,12 +5,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Row from "./components/Row";
 import GridButton from "./components/GridButton";
 import ValueBoard from "./components/ValueBoard";
+import { toValidNumber } from "./tools";
 
 export default function App() {
-    const [currentNumber, setCurrentNumber] = useState(0);
+    const [currentNumber, setCurrentNumber] = useState("0");
     const setNumber = (value: string) => {
         console.log(value);
-        setCurrentNumber((num) => +("" + num + value));
+        setCurrentNumber((num) => toValidNumber(num + value));
     };
     return (
         <SafeAreaView style={styles.container}>
@@ -62,7 +63,10 @@ export default function App() {
                                 size={2}
                                 onPress={() => setNumber("0")}
                             />
-                            <GridButton title="." />
+                            <GridButton
+                                title="."
+                                onPress={() => setNumber(".")}
+                            />
                             <GridButton title="+" />
                         </Row>
                     </View>
