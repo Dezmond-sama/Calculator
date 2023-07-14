@@ -1,4 +1,4 @@
-import { toValidNumberInput, toValidNumber } from '../tools';
+import { toValidNumberInput, toValidNumber } from "../tools";
 
 test("Number input validating simple", () => {
     expect(toValidNumberInput("123")).toBe("123");
@@ -11,7 +11,7 @@ test("Number input validating leading zeros", () => {
     expect(toValidNumberInput("0.123")).toBe("0.123");
     expect(toValidNumberInput("0123")).toBe("123");
     expect(toValidNumberInput("0000123")).toBe("123");
-    expect(toValidNumberInput("01.23")).toBe("1.23");  
+    expect(toValidNumberInput("01.23")).toBe("1.23");
 });
 
 test("Number input validating create zero", () => {
@@ -38,7 +38,7 @@ test("Number validating leading zeros", () => {
     expect(toValidNumber("0.123")).toBe("0.123");
     expect(toValidNumber("0123")).toBe("123");
     expect(toValidNumber("0000123")).toBe("123");
-    expect(toValidNumber("01.23")).toBe("1.23");  
+    expect(toValidNumber("01.23")).toBe("1.23");
 });
 
 test("Number validating create zero", () => {
